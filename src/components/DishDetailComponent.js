@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
-import {Card, CardImg, CardImgOverlay, CardBody, CardTitle, CardText} from 'reactstrap';
+import React from 'react';
+import {Card, CardImg, CardBody, CardTitle, CardText} from 'reactstrap';
 
-class DishDetail extends Component{
-    constructor(props){
-        super(props);
-    }
-    renderDish(dish){
+    function RenderDish({dish}){
         return(
             <Card>
                 <CardImg width="100%" src={dish.image} alt={dish.name} />
@@ -16,14 +12,12 @@ class DishDetail extends Component{
             </Card>
         );
     }
-    renderComments(comments){
+    function RenderComments({comments}){
         const commentsList = comments.map((c) => {
-            const d = new Date(c.date);
-            const str = d.toDateString();
             return(
                 <ul className="list-unstyled">
                     <li>{c.comment}</li>
-                    <li>-- {c.author}, {str.slice(4, 10)}, {str.slice(11, 15)}</li>
+                    <li>-- {c.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(c.date)))}</li>
                 </ul>
             );
         });
@@ -34,16 +28,16 @@ class DishDetail extends Component{
             </div>
         );
     }
-    render(){
-        if(this.props.selectedDish!=null){
+    const DishDetail= (props) =>{
+        if(props.selectedDish!=null){
             return(
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-5 m-1">
-                            {this.renderDish(this.props.selectedDish)}
+                            <RenderDish dish={props.selectedDish} />
                         </div>
                         <div className="col-12 col-md-5 m-1">
-                            {this.renderComments(this.props.selectedDish.comments)}
+                            <RenderComments comments={props.selectedDish.comments} />
                         </div>
                     </div>
                 </div>
@@ -53,6 +47,5 @@ class DishDetail extends Component{
             return(<div></div>);
         }
     }
-}
 
 export default DishDetail;

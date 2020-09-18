@@ -8,14 +8,14 @@ import './App.css';
 class App extends Component{
   constructor(props){
     super(props);
-    this.state={
+    this.state = {
       dishes:DISHES
     };
   }
   render(){
     return (
       <div>
-        <Navbar dark color="primary" >
+        <Navbar light color="primary">
           <div className="container">
             <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
           </div>

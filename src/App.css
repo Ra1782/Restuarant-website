@@ -28,6 +28,10 @@ address{
     color:#0f0f0f;
 }
 
-.navbar-dark {
+.navbar-dark{
     background-color: #512DA8;
+}
+
+.NavbarBrand {
+    color: #fff;
 }

@@ -32,6 +32,10 @@ address{
     background-color: #512DA8;
 }
 
-.NavbarBrand {
-    color: #fff;
+.toggler {
+    background-color: #9575CD;
+}
+
+.toggler:active{
+    background-color: #D1C4E9;
 }

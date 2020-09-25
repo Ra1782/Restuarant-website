@@ -19,12 +19,12 @@ class Header extends Component {
     render() {
         return(
             <div>
-                <Navbar dark expand="md">
+                <Navbar dark expand="xs">
                     <div className="container">
                         <NavbarToggler className="toggler m-2" onClick={this.toggleNav}/>
                         <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo.png' height="30" width="41" alt='Ristorante Con Fusion' /></NavbarBrand>
-                        <Collapse isOpen={this.state.isNavOpen} navbar>
-                            <Nav navbar>
+                        <Collapse isOpen={this.state.isNavOpen}>
+                            <Nav>
                             <NavItem>
                                 <NavLink className="nav-link"  to='/home'><span className="fa fa-home fa-lg"></span> Home</NavLink>
                             </NavItem>

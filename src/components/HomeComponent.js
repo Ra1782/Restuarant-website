@@ -15,7 +15,6 @@ function RenderCard({item, isLoading, errMess}){
         );
     }
     else
-    console.log(item.image);
         return(
             <Card>
                 <CardImg width="100%" src={baseUrl + item.image} alt={item.name}/>
